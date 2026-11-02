@@ -31,15 +31,24 @@ sql/
 │   │   └── foodie_app.db              # Active SQLite database file
 │   └── screenshots/
 │       └── task5_sql_error_and_correction.png # Diagnostic error screenshot
-└── Session 3/
-    ├── README.md                      # Detailed DML documentation & state transitions
-    ├── session_3.sql                  # Complete SQL execution script (Tasks 1 - 5)
-    ├── playlist_mysql.sql             # Dedicated MySQL 8.0+ production DML script
-    ├── playlist_sqlite.sql            # Dedicated SQLite 3 script
-    ├── session_3.py                   # Automated Python test & verification script
-    ├── session_3.ipynb                # Interactive Jupyter Notebook
+├── Session 3/
+│   ├── README.md                      # Detailed DML documentation & state transitions
+│   ├── session_3.sql                  # Complete SQL execution script (Tasks 1 - 5)
+│   ├── playlist_mysql.sql             # Dedicated MySQL 8.0+ production DML script
+│   ├── playlist_sqlite.sql            # Dedicated SQLite 3 script
+│   ├── session_3.py                   # Automated Python test & verification script
+│   ├── session_3.ipynb                # Interactive Jupyter Notebook
+│   └── database/
+│       └── spotify_playlist.db        # Populated SQLite database file
+└── Session 4/
+    ├── README.md                      # Comprehensive query documentation & grammar debugging
+    ├── session_4.sql                  # Complete SQL execution script (Tasks 1 - 5)
+    ├── music_and_orders_mysql.sql     # Dedicated MySQL 8.0+ production DDL & queries
+    ├── music_and_orders_sqlite.sql    # Dedicated SQLite 3 script
+    ├── session_4.py                   # Automated Python test & verification script
+    ├── session_4.ipynb                # Interactive Jupyter Notebook
     └── database/
-        └── spotify_playlist.db        # Populated SQLite database file
+        └── music_and_orders.db        # Populated SQLite database file
 ```
 
 ---
@@ -51,6 +60,7 @@ sql/
 | **[Session 1](Session%201/)** | Database Introduction & SQL Basics | RDBMS Architecture, Table vs Row vs Column (Zomato), DDL `CREATE TABLE`, DML `INSERT`, `SELECT ... WHERE` Filter | **Completed** |
 | **[Session 2](Session%202/)** | Database Setup + CREATE TABLE | Engine Setup, Data Types, Constraints (PK, UNIQUE, CHECK), Decimal Precision, Error Diagnosis & Fix | **Completed** |
 | **[Session 3](Session%203/)** | INSERT, UPDATE & DELETE | DML Lifecycle, In-Place Updates, Safe Deletions with WHERE, Compound Filtering, String Concatenation | **Completed** |
+| **[Session 4](Session%204/)** | SELECT Statement Basics | Column Projection, Row Pagination (`LIMIT`), Deduplication (`DISTINCT`), Column Aliases (`AS`), Grammar & Clause Placement | **Completed** |
 
 ---
 
@@ -74,6 +84,13 @@ sql/
 - **Safe Record Deletion:** Purged sub-120s audio interludes using `DELETE ... WHERE duration < 120`.
 - **Compound Conditional Concatenation:** Appended `' (Remix)'` to songs by `'AP Dhillon'` with `duration > 180s` across SQLite (`||`) and MySQL (`CONCAT`).
 
+### [Session 4: SELECT Statement Basics](Session%204/)
+- **Full & Projected SELECT Queries:** Retrieved all columns (`SELECT *`) and specific subsets (`SELECT song_name, artist`) from `MusicPlaylist`.
+- **Pagination with LIMIT:** Extracted top 3 rows using `LIMIT 3`.
+- **Unique Records with DISTINCT:** Deduplicated restaurant names across order histories using `SELECT DISTINCT restaurant`.
+- **Column Aliasing:** Renamed technical column headers to business terms (`Dish` and `Date Ordered`).
+- **Clause Grammar Debugging:** Detailed analysis of `LIMIT` and `DISTINCT` placement, tuple-level uniqueness, and non-deterministic behavior without `ORDER BY`.
+
 ---
 
 ## Getting Started & Execution
@@ -87,4 +104,5 @@ sql/
 python "Session 1/session_1.py"
 python "Session 2/session_2.py"
 python "Session 3/session_3.py"
+python "Session 4/session_4.py"
 ```
