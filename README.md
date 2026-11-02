@@ -49,15 +49,24 @@ sql/
 │   ├── session_4.ipynb                # Interactive Jupyter Notebook
 │   └── database/
 │       └── music_and_orders.db        # Populated SQLite database file
-└── Session 5/
-    ├── README.md                      # Advanced filtering, Boolean logic & pattern matching
-    ├── session_5.sql                  # Complete SQL execution script (Tasks 1 - 5)
-    ├── restaurants_filtering_mysql.sql# Dedicated MySQL 8.0+ production DDL & queries
-    ├── restaurants_filtering_sqlite.sql# Dedicated SQLite 3 script
-    ├── session_5.py                   # Automated Python test & verification script
-    ├── session_5.ipynb                # Interactive Jupyter Notebook
+├── Session 5/
+│   ├── README.md                      # Advanced filtering, Boolean logic & pattern matching
+│   ├── session_5.sql                  # Complete SQL execution script (Tasks 1 - 5)
+│   ├── restaurants_filtering_mysql.sql# Dedicated MySQL 8.0+ production DDL & queries
+│   ├── restaurants_filtering_sqlite.sql# Dedicated SQLite 3 script
+│   ├── session_5.py                   # Automated Python test & verification script
+│   ├── session_5.ipynb                # Interactive Jupyter Notebook
+│   └── database/
+│       └── restaurants.db             # Populated SQLite database file
+└── Session 6/
+    ├── README.md                      # ORDER BY, multi-column sorting & tie-breaking
+    ├── session_6.sql                  # Complete SQL execution script (Tasks 1 - 5)
+    ├── sorting_mysql.sql              # Dedicated MySQL 8.0+ production DDL & queries
+    ├── sorting_sqlite.sql             # Dedicated SQLite 3 script
+    ├── session_6.py                   # Automated Python test & verification script
+    ├── session_6.ipynb                # Interactive Jupyter Notebook
     └── database/
-        └── restaurants.db             # Populated SQLite database file
+        └── sorting_db.db              # Populated SQLite database file
 ```
 
 ---
@@ -71,6 +80,7 @@ sql/
 | **[Session 3](Session%203/)** | INSERT, UPDATE & DELETE | DML Lifecycle, In-Place Updates, Safe Deletions with WHERE, Compound Filtering, String Concatenation | **Completed** |
 | **[Session 4](Session%204/)** | SELECT Statement Basics | Column Projection, Row Pagination (`LIMIT`), Deduplication (`DISTINCT`), Column Aliases (`AS`), Grammar & Clause Placement | **Completed** |
 | **[Session 5](Session%205/)** | WHERE Clause + LIKE | Boolean Operator Precedence (`AND`/`OR`), Wildcard Matching (`LIKE 'Swa%'`), Inclusive Ranges (`BETWEEN`), Set Membership (`IN`) | **Completed** |
+| **[Session 6](Session%206/)** | ORDER BY + Sorting | Ascending/Descending (`ASC`/`DESC`), Multi-Column Sorts, Pagination (`LIMIT`), Collation & Tie-Breaking | **Completed** |
 
 ---
 
@@ -108,6 +118,13 @@ sql/
 - **Range Queries:** Filtered ratings in the closed interval $[3.5, 4.5]$ using `BETWEEN`.
 - **Set Membership:** Filtered multiple cuisines cleanly using `IN ('Chinese', 'Italian', 'South Indian')`.
 
+### [Session 6: ORDER BY + Sorting](Session%206/)
+- **Ascending Price Sorting:** Ordered e-commerce products from lowest to highest price (`ORDER BY price ASC`).
+- **Top 5 Expensive Products:** Combined descending sort with row limiting (`ORDER BY price DESC LIMIT 5`).
+- **Multi-Column Movie Sorting:** Sorted by `release_year DESC`, with release-year ties resolved by `rating DESC`.
+- **A-Z Directory Ordering:** Implemented alphabetical restaurant listings (`ORDER BY name ASC LIMIT 10`).
+- **Trending Chart Tie-Breaks:** Ranked trending songs by `play_count DESC`, resolving play-count ties by `added_date DESC`.
+
 ---
 
 ## Getting Started & Execution
@@ -123,4 +140,5 @@ python "Session 2/session_2.py"
 python "Session 3/session_3.py"
 python "Session 4/session_4.py"
 python "Session 5/session_5.py"
+python "Session 6/session_6.py"
 ```
