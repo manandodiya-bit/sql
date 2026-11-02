@@ -19,18 +19,27 @@ sql/
 │   ├── session_1.ipynb                # Interactive Jupyter Notebook
 │   └── database/
 │       └── music_streaming_app.db     # Populated SQLite database file
-└── Session 2/
-    ├── README.md                      # Detailed Task writeups, analysis & rationales
-    ├── session_2.sql                  # Complete SQL execution script (Tasks 1 - 5)
-    ├── foodie_app_mysql.sql           # Dedicated MySQL 8.0+ production DDL & seeds
-    ├── foodie_app_sqlite.sql          # Dedicated SQLite 3 script
-    ├── session_2.py                   # Automated Python test & verification script
-    ├── session_2.ipynb                # Interactive Jupyter Notebook
-    ├── generate_screenshot.py         # Screenshot generator script
-    ├── database/
-    │   └── foodie_app.db              # Active SQLite database file
-    └── screenshots/
-        └── task5_sql_error_and_correction.png # Diagnostic error screenshot
+├── Session 2/
+│   ├── README.md                      # Detailed Task writeups, analysis & rationales
+│   ├── session_2.sql                  # Complete SQL execution script (Tasks 1 - 5)
+│   ├── foodie_app_mysql.sql           # Dedicated MySQL 8.0+ production DDL & seeds
+│   ├── foodie_app_sqlite.sql          # Dedicated SQLite 3 script
+│   ├── session_2.py                   # Automated Python test & verification script
+│   ├── session_2.ipynb                # Interactive Jupyter Notebook
+│   ├── generate_screenshot.py         # Screenshot generator script
+│   ├── database/
+│   │   └── foodie_app.db              # Active SQLite database file
+│   └── screenshots/
+│       └── task5_sql_error_and_correction.png # Diagnostic error screenshot
+└── Session 3/
+    ├── README.md                      # Detailed DML documentation & state transitions
+    ├── session_3.sql                  # Complete SQL execution script (Tasks 1 - 5)
+    ├── playlist_mysql.sql             # Dedicated MySQL 8.0+ production DML script
+    ├── playlist_sqlite.sql            # Dedicated SQLite 3 script
+    ├── session_3.py                   # Automated Python test & verification script
+    ├── session_3.ipynb                # Interactive Jupyter Notebook
+    └── database/
+        └── spotify_playlist.db        # Populated SQLite database file
 ```
 
 ---
@@ -41,6 +50,7 @@ sql/
 |---|---|---|---|
 | **[Session 1](Session%201/)** | Database Introduction & SQL Basics | RDBMS Architecture, Table vs Row vs Column (Zomato), DDL `CREATE TABLE`, DML `INSERT`, `SELECT ... WHERE` Filter | **Completed** |
 | **[Session 2](Session%202/)** | Database Setup + CREATE TABLE | Engine Setup, Data Types, Constraints (PK, UNIQUE, CHECK), Decimal Precision, Error Diagnosis & Fix | **Completed** |
+| **[Session 3](Session%203/)** | INSERT, UPDATE & DELETE | DML Lifecycle, In-Place Updates, Safe Deletions with WHERE, Compound Filtering, String Concatenation | **Completed** |
 
 ---
 
@@ -58,6 +68,12 @@ sql/
 - **Data Type Rationale:** Deep architectural analysis explaining why `VARCHAR(15)` must be used for phone numbers over numeric integers (preserving leading zeroes, supporting `+` international format, preventing overflow).
 - **Error Diagnostics:** Intentional syntax error demonstration, parser behavior analysis, corrected SQL, and visual terminal screenshot.
 
+### [Session 3: INSERT, UPDATE & DELETE](Session%203/)
+- **Spotify Playlist Table (`Playlist`):** Created table (`id`, `song_name`, `artist`, `duration`) and inserted favorite song.
+- **Data Cleansing with UPDATE:** Fixed artist typo from `'Arjit Singh'` to `'Arijit Singh'` using `UPDATE ... WHERE`.
+- **Safe Record Deletion:** Purged sub-120s audio interludes using `DELETE ... WHERE duration < 120`.
+- **Compound Conditional Concatenation:** Appended `' (Remix)'` to songs by `'AP Dhillon'` with `duration > 180s` across SQLite (`||`) and MySQL (`CONCAT`).
+
 ---
 
 ## Getting Started & Execution
@@ -66,12 +82,9 @@ sql/
 - Python 3.10+ (SQLite 3 is built-in)
 - Optional: MySQL Community Server 8.0+ / MySQL Workbench
 
-### Running Session 1
+### Running Any Session
 ```bash
 python "Session 1/session_1.py"
-```
-
-### Running Session 2
-```bash
 python "Session 2/session_2.py"
+python "Session 3/session_3.py"
 ```
