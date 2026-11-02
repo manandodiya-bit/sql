@@ -40,15 +40,24 @@ sql/
 │   ├── session_3.ipynb                # Interactive Jupyter Notebook
 │   └── database/
 │       └── spotify_playlist.db        # Populated SQLite database file
-└── Session 4/
-    ├── README.md                      # Comprehensive query documentation & grammar debugging
-    ├── session_4.sql                  # Complete SQL execution script (Tasks 1 - 5)
-    ├── music_and_orders_mysql.sql     # Dedicated MySQL 8.0+ production DDL & queries
-    ├── music_and_orders_sqlite.sql    # Dedicated SQLite 3 script
-    ├── session_4.py                   # Automated Python test & verification script
-    ├── session_4.ipynb                # Interactive Jupyter Notebook
+├── Session 4/
+│   ├── README.md                      # Comprehensive query documentation & grammar debugging
+│   ├── session_4.sql                  # Complete SQL execution script (Tasks 1 - 5)
+│   ├── music_and_orders_mysql.sql     # Dedicated MySQL 8.0+ production DDL & queries
+│   ├── music_and_orders_sqlite.sql    # Dedicated SQLite 3 script
+│   ├── session_4.py                   # Automated Python test & verification script
+│   ├── session_4.ipynb                # Interactive Jupyter Notebook
+│   └── database/
+│       └── music_and_orders.db        # Populated SQLite database file
+└── Session 5/
+    ├── README.md                      # Advanced filtering, Boolean logic & pattern matching
+    ├── session_5.sql                  # Complete SQL execution script (Tasks 1 - 5)
+    ├── restaurants_filtering_mysql.sql# Dedicated MySQL 8.0+ production DDL & queries
+    ├── restaurants_filtering_sqlite.sql# Dedicated SQLite 3 script
+    ├── session_5.py                   # Automated Python test & verification script
+    ├── session_5.ipynb                # Interactive Jupyter Notebook
     └── database/
-        └── music_and_orders.db        # Populated SQLite database file
+        └── restaurants.db             # Populated SQLite database file
 ```
 
 ---
@@ -61,6 +70,7 @@ sql/
 | **[Session 2](Session%202/)** | Database Setup + CREATE TABLE | Engine Setup, Data Types, Constraints (PK, UNIQUE, CHECK), Decimal Precision, Error Diagnosis & Fix | **Completed** |
 | **[Session 3](Session%203/)** | INSERT, UPDATE & DELETE | DML Lifecycle, In-Place Updates, Safe Deletions with WHERE, Compound Filtering, String Concatenation | **Completed** |
 | **[Session 4](Session%204/)** | SELECT Statement Basics | Column Projection, Row Pagination (`LIMIT`), Deduplication (`DISTINCT`), Column Aliases (`AS`), Grammar & Clause Placement | **Completed** |
+| **[Session 5](Session%205/)** | WHERE Clause + LIKE | Boolean Operator Precedence (`AND`/`OR`), Wildcard Matching (`LIKE 'Swa%'`), Inclusive Ranges (`BETWEEN`), Set Membership (`IN`) | **Completed** |
 
 ---
 
@@ -91,6 +101,13 @@ sql/
 - **Column Aliasing:** Renamed technical column headers to business terms (`Dish` and `Date Ordered`).
 - **Clause Grammar Debugging:** Detailed analysis of `LIMIT` and `DISTINCT` placement, tuple-level uniqueness, and non-deterministic behavior without `ORDER BY`.
 
+### [Session 5: WHERE Clause + LIKE](Session%205/)
+- **Restaurants Schema (`Restaurants`):** Seeded 8 realistic restaurants across Gujarat cities (Ahmedabad, Surat, Vadodara, Rajkot).
+- **Boolean Precedence:** Demonstrated why parentheses around `(city = 'Ahmedabad' OR city = 'Surat')` are essential due to `AND` evaluating before `OR`.
+- **Wildcard Substring Filtering:** Matched names starting with `'Swa'` using `LIKE 'Swa%'`.
+- **Range Queries:** Filtered ratings in the closed interval $[3.5, 4.5]$ using `BETWEEN`.
+- **Set Membership:** Filtered multiple cuisines cleanly using `IN ('Chinese', 'Italian', 'South Indian')`.
+
 ---
 
 ## Getting Started & Execution
@@ -105,4 +122,5 @@ python "Session 1/session_1.py"
 python "Session 2/session_2.py"
 python "Session 3/session_3.py"
 python "Session 4/session_4.py"
+python "Session 5/session_5.py"
 ```
