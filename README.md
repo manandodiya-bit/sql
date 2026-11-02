@@ -58,15 +58,24 @@ sql/
 │   ├── session_5.ipynb                # Interactive Jupyter Notebook
 │   └── database/
 │       └── restaurants.db             # Populated SQLite database file
-└── Session 6/
-    ├── README.md                      # ORDER BY, multi-column sorting & tie-breaking
-    ├── session_6.sql                  # Complete SQL execution script (Tasks 1 - 5)
-    ├── sorting_mysql.sql              # Dedicated MySQL 8.0+ production DDL & queries
-    ├── sorting_sqlite.sql             # Dedicated SQLite 3 script
-    ├── session_6.py                   # Automated Python test & verification script
-    ├── session_6.ipynb                # Interactive Jupyter Notebook
+├── Session 6/
+│   ├── README.md                      # ORDER BY, multi-column sorting & tie-breaking
+│   ├── session_6.sql                  # Complete SQL execution script (Tasks 1 - 5)
+│   ├── sorting_mysql.sql              # Dedicated MySQL 8.0+ production DDL & queries
+│   ├── sorting_sqlite.sql             # Dedicated SQLite 3 script
+│   ├── session_6.py                   # Automated Python test & verification script
+│   ├── session_6.ipynb                # Interactive Jupyter Notebook
+│   └── database/
+│       └── sorting_db.db              # Populated SQLite database file
+└── Session 7/
+    ├── README.md                      # Aggregate functions, GROUP BY & NULL handling
+    ├── session_7.sql                  # Complete SQL execution script (Tasks 1 - 5)
+    ├── orders_aggregates_mysql.sql    # Dedicated MySQL 8.0+ production DDL & queries
+    ├── orders_aggregates_sqlite.sql   # Dedicated SQLite 3 script
+    ├── session_7.py                   # Automated Python test & verification script
+    ├── session_7.ipynb                # Interactive Jupyter Notebook
     └── database/
-        └── sorting_db.db              # Populated SQLite database file
+        └── orders.db                  # Populated SQLite database file
 ```
 
 ---
@@ -81,6 +90,7 @@ sql/
 | **[Session 4](Session%204/)** | SELECT Statement Basics | Column Projection, Row Pagination (`LIMIT`), Deduplication (`DISTINCT`), Column Aliases (`AS`), Grammar & Clause Placement | **Completed** |
 | **[Session 5](Session%205/)** | WHERE Clause + LIKE | Boolean Operator Precedence (`AND`/`OR`), Wildcard Matching (`LIKE 'Swa%'`), Inclusive Ranges (`BETWEEN`), Set Membership (`IN`) | **Completed** |
 | **[Session 6](Session%206/)** | ORDER BY + Sorting | Ascending/Descending (`ASC`/`DESC`), Multi-Column Sorts, Pagination (`LIMIT`), Collation & Tie-Breaking | **Completed** |
+| **[Session 7](Session%207/)** | Aggregate Functions | Aggregations (`COUNT`, `AVG`, `MAX`, `MIN`, `SUM`), Categorical Grouping (`GROUP BY`), Statistical NULL Semantics | **Completed** |
 
 ---
 
@@ -125,6 +135,13 @@ sql/
 - **A-Z Directory Ordering:** Implemented alphabetical restaurant listings (`ORDER BY name ASC LIMIT 10`).
 - **Trending Chart Tie-Breaks:** Ranked trending songs by `play_count DESC`, resolving play-count ties by `added_date DESC`.
 
+### [Session 7: Aggregate Functions](Session%207/)
+- **Orders Table (`Orders`):** Created Flipkart simulation table with intentional `NULL` order amounts.
+- **Counting Orders per User:** Grouped and counted order frequency via `COUNT(*) GROUP BY user_name`.
+- **Average Amount Calculation:** Computed `AVG(total_amount)`, documenting how standard SQL aggregates drop `NULL`s.
+- **Single-Row Extremes:** Extracted `MAX` and `MIN` metrics in a single result row for dashboard KPIs.
+- **Total Revenue Summation:** Computed total sales with `SUM(total_amount) WHERE total_amount IS NOT NULL`.
+
 ---
 
 ## Getting Started & Execution
@@ -141,4 +158,5 @@ python "Session 3/session_3.py"
 python "Session 4/session_4.py"
 python "Session 5/session_5.py"
 python "Session 6/session_6.py"
+python "Session 7/session_7.py"
 ```
